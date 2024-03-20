@@ -1,0 +1,54 @@
+.company {
+  background-color: #F2F2EF;
+  color: var(--black-color);
+}
+
+.company .information__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12px;
+  font-weight: 400;
+  color: #949494;
+  margin-top: 19px;
+  margin-bottom: 17px;
+}
+
+.company .information__link a {
+  color: #949494;
+}
+
+.company__title {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 36.57px;
+  margin-bottom: 31px;
+}
+
+.company__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.5px;
+  margin-bottom: 38px;
+}
+
+.company__text p {
+  margin-bottom: 20px;
+}
+
+.company__conditions {
+  color: var(--black-color);
+  margin-bottom: 53px;
+}
+
+.company__conditions h3 {
+  line-height: 50px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.company__conditions li {
+  font-weight: 400;
+  line-height: 40px;
+  font-size: 16px;
+}
