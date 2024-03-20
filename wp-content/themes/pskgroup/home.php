@@ -10,6 +10,8 @@
 get_header();
 ?>
 
+1234514121
+
     <div class="wrapper">
         <section class="section" style="background-image: url('<?php bloginfo('template_url'); ?>/assets/img/mainbg.jpg');">
 
