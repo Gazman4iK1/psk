@@ -61,7 +61,7 @@
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between;
+          justify-content: space-evenly;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: 20px;
@@ -149,14 +149,11 @@
 
 @media (max-width: 48em) {
   .main__products {
-    display: block;
+    display: flex;
     -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+    flex-wrap: nowrap;
     gap: 0;
   }
-
-  .no-webp .main .mySwiper2 {
-    background-image: url(../../images/beam.jpg); }
 
   .main .mySwiper2 {
     background-repeat: no-repeat;
@@ -168,9 +165,4 @@
   .main__container {
     gap: 0;
   }
-}
-
-@media (max-width: 48em) {
-
-  .webp .main .mySwiper2 { background-image: url(../../images/beam.webp); }
 }

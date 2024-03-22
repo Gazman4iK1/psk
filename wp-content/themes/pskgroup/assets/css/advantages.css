@@ -139,7 +139,7 @@
 
   .advantages .advantages__text {
     margin-bottom: 18px;
-  }
+  }a
 
   .advantages .advantages__list {
     gap: 15px;
@@ -174,8 +174,8 @@
             justify-content: center;
   }
 
-  .advantages .advantages .advantage__text {
-    font-size: 10px;
+  .advantages .advantage__text {
+    font-size: 14px;
   }
 
   .advantages .production__list {

@@ -312,7 +312,6 @@ sup {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-height: 100%;
   /** Поменять на clip - если используется в проекте position: sticky */
   overflow: hidden;
 }
@@ -343,7 +342,7 @@ sup {
 */
 
 .container {
-  max-width: 87.5rem;
+  max-width: 81.25rem;
   margin: 0 auto;
 }
 
@@ -355,6 +354,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  flex-wrap: wrap;
   font-size: 12px;
   font-weight: 400;
   color: #949494;
@@ -369,6 +369,15 @@ body {
 /**
 * Подключение стилей отдельных блоков и секций
 */
+p{
+  margin: 0;
+}
+
+button{
+  border-radius: 0;
+  border: none;
+  padding: 0;
+}
 
 .header {
   z-index: 50;
@@ -388,6 +397,9 @@ body {
   color: #fff;
   color: var(--white-color);
   text-transform: uppercase;
+  border: none;
+  border-radius: 0;
+  padding: 0;
 }
 
 .header .cont-menu {
@@ -419,6 +431,7 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   gap: 42px;
+  margin: 0;
 }
 
 .header .menu__item__mobile {
@@ -441,9 +454,6 @@ body {
 .icon-menu {
   display: none;
 }
-
-.no-webp .footer{
-  background-image: url("../img/footerbg.jpg"); }
 
 .footer {
   height: 359px;
@@ -484,6 +494,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 30px;
+  margin: 0;
 }
 
 .footer__nav ul a {
@@ -605,6 +616,10 @@ footer .contacts .mail img {
   background-color: var(--white-color);
 }
 
+.filter__container p{
+  color: var(--black-color);
+}
+
 .filter__category :nth-child(1) {
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -670,6 +685,65 @@ footer .contacts .mail img {
   z-index: 30;
 }
 
+@media (max-width: 81.25em) {
+  .container {
+    max-width: 1100px;
+  }
+
+  .header ul {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 68.75em) {
+  .container {
+    max-width: 768px;
+  }
+
+  .header ul {
+    gap: 10px;
+  }
+
+  .header a {
+    font-size: 12px;
+  }
+
+  .header__button {
+    width: 120px;
+  }
+
+  .footer__nav {
+    width: 250px;
+    height: auto;
+    padding-left: 10px;
+  }
+
+  .footer__nav ul a {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  header .contacts {
+    gap: 15px;
+    height: auto;
+  }
+
+  header .contacts .phone,
+  header .contacts .mail {
+    font-size: 12px;
+  }
+
+  footer .contacts {
+    gap: 15px;
+    height: auto;
+  }
+
+  footer .contacts .phone,
+  footer .contacts .mail {
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 48em) {
   .container {
     width: 100%;
@@ -693,16 +767,16 @@ footer .contacts .mail img {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: start;
+    -ms-flex-align: start;
+    align-items: start;
     width: 282px;
     height: 546px;
     background-color: #fff;
     background-color: var(--white-color);
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     color: #000;
     color: var(--black-color);
     padding-top: 50px;
@@ -717,7 +791,7 @@ footer .contacts .mail img {
     -webkit-transition: var(--bs-transition);
     transition: var(--bs-transition);
     -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.6);
-            box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.6);
   }
 
   .header a {
@@ -732,16 +806,16 @@ footer .contacts .mail img {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: start;
+    -ms-flex-align: start;
+    align-items: start;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     gap: 40px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
   }
 
   .header .menu__item__mobile {
@@ -813,15 +887,15 @@ footer .contacts .mail img {
   .menu-open .icon-menu::before {
     top: calc(50% - 0.0625rem);
     -webkit-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-            transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
   }
 
   .menu-open .icon-menu::after {
     bottom: calc(50% - 0.0625rem);
     -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
   }
 
   .footer {
@@ -843,11 +917,11 @@ footer .contacts .mail img {
   .footer__flex {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
 
   .footer__nav {
@@ -859,11 +933,11 @@ footer .contacts .mail img {
   .footer__nav ul {
     gap: 26px;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
 
   .footer__nav ul a {
@@ -948,63 +1022,3 @@ footer .contacts .mail img {
   }
 }
 
-@media (max-width: 81.25em) {
-  .container {
-    max-width: 1100px;
-  }
-
-  .header ul {
-    gap: 30px;
-  }
-}
-
-@media (max-width: 68.75em) {
-  .container {
-    max-width: 768px;
-  }
-
-  .header ul {
-    gap: 10px;
-  }
-
-  .header a {
-    font-size: 14px;
-  }
-
-  .header__button {
-    width: 120px;
-  }
-
-  .footer__nav {
-    width: 250px;
-    height: auto;
-    padding-left: 10px;
-  }
-
-  .footer__nav ul a {
-    font-size: 18px;
-    font-weight: 600;
-  }
-
-  header .contacts {
-    gap: 15px;
-    height: auto;
-  }
-
-  header .contacts .phone,
-  header .contacts .mail {
-    font-size: 12px;
-  }
-
-  footer .contacts {
-    gap: 15px;
-    height: auto;
-  }
-
-  footer .contacts .phone,
-  footer .contacts .mail {
-    font-size: 12px;
-  }
-}
-
-.webp .footer{ background-image: url(../../images/footerbg.webp); }

@@ -11,31 +11,33 @@
 
 ?>
 
-<footer class="footer">
+<footer class="footer" style="background-image: url('<?php bloginfo('template_url'); ?>/assets/img/footerbg.jpg');">
     <div class="container footer__container">
         <div class="footer__flex">
 
             <div class="footer__con-logo">
-                <a href="#" class="logo footer__logo"><img src=".<?php bloginfo('template_url'); ?>/assets/img/footerlogo.svg" alt=""></a>
+                <a href="<?php echo home_url(); ?>" class="logo footer__logo"><img src="<?php bloginfo('template_url'); ?>/assets/img/footerlogo.svg" alt=""></a>
             </div>
 
             <nav class="footer__nav">
-                <ul class="footer__list">
-                    <li class="footer__item"><a href="../aboutus.html" class="footer__link">О компании</a></li>
-                    <li class="footer__item"><a href="../advantages.html" class="footer__link">Наши
-                            преимущества</a>
-                    </li>
-                    <li class="footer__item"><a href="../products.html" class="footer__link">Продукция</a></li>
-                </ul>
+                <?php
+                wp_nav_menu(
+                    array(
+                        'theme_location' => 'footermenu',
+                        'container' => null,
+                        'menu_class' => 'footer__list'
+                    )
+                );
+                ?>
             </nav>
 
             <div class="contacts">
                 <div class="phone">
-                    <img src=".<?php bloginfo('template_url'); ?>/assets/img/phone.svg" alt="">
+                    <img src="<?php bloginfo('template_url'); ?>/assets/img/phone.svg" alt="">
                     <p>8 (8552) 47-40-42</p>
                 </div>
                 <div class="mail">
-                    <img src=".<?php bloginfo('template_url'); ?>/assets/img/mail.svg" alt="">
+                    <img src="<?php bloginfo('template_url'); ?>/assets/img/mail.svg" alt="">
                     <p>lotkipsk@mail.ru</p>
                 </div>
             </div>

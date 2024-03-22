@@ -22,10 +22,10 @@
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between;
+          justify-content: space-evenly;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 45px 0;
+  gap: 45px 25px;
   margin-bottom: 50px;
 }
 
@@ -44,6 +44,7 @@
   font-weight: 400;
   line-height: 15.85px;
 }
+
 
 @media (max-width: 48em) {
   .projects__flex {

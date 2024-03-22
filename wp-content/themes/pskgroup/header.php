@@ -26,18 +26,22 @@
 <header class="header">
     <div class="container header__container">
         <div class="cont-logo">
-            <a href="../index.html" class="logo header__logo"><img src="../images/LOGO4.svg" alt=""></a>
+            <a href="<?php echo home_url(); ?>" class="logo header__logo"><img src="<?php bloginfo('template_url'); ?>/assets/img/LOGO4.svg" alt=""></a>
         </div>
         <button class="header__burger icon-menu">
             <span></span>
         </button>
         <div class="cont-menu">
             <nav class="header__menu">
-                <ul class="menu__list">
-                    <li class="menu__item"><a href="../aboutus.html" class="menu__link">О компании</a></li>
-                    <li class="menu__item"><a href="../products.html" class="menu__link">Продукция</a></li>
-                    <li class="menu__item"><a href="../projects.html" class="menu__link">Наши проекты</a></li>
-                </ul>
+                <?php
+                wp_nav_menu(
+                    array(
+                        'theme_location' => 'headmenu',
+                        'container' => null,
+                        'menu_class' => 'menu__list'
+                    )
+                );
+                ?>
             </nav>
 
             <div class="contacts">

@@ -7,77 +7,61 @@
  * @package astimer
  */
 
-get_header();
+
 ?>
 
-1234514121
-
     <div class="wrapper">
-        <section class="section" style="background-image: url('<?php bloginfo('template_url'); ?>/assets/img/mainbg.jpg');">
-
+        <section class="section"
+                 style="background-image: url('<?php bloginfo('template_url'); ?>/assets/img/mainbg.jpg');">
+            <?php get_header(); ?>
             <div class="container section__container">
                 <h2 class="section__title">
-                    ЗАВОД ЭЛЕКТРОМОНТАЖНЫХ РЕШЕНИЙ
+                    <?php the_field( 'section-title' ); ?>
                 </h2>
                 <p class="section__text">
-                    Производство кабеленесущих систем
+                    <?php the_field( 'section-text' ); ?>
                 </p>
-                <button class="section__button">ПОДРОБНЕЕ</button>
+                <button class="section__button"><?php the_field( 'section-btn' ); ?></button>
             </div>
         </section>
 
         <main class="page">
 
-            <div class="products">
+            <div class="products"
+                 style="background-image: url('<?php bloginfo('template_url'); ?>/assets/img/beam.jpg');">
 
-                <h3 class="products__title">наша продукция</h3>
+                <h3 class="products__title"><?php the_field( 'products-title' ); ?></h3>
 
                 <div class="mySwiper swiper">
                     <div class="container products__flex swiper-wrapper">
 
-                        <div class="product swiper-slide">
-                            <div class="product__container">
+                        <?php
+                        global $post;
 
-                                    <source srcset="<?php bloginfo('template_url'); ?>/assets/img/product1.webp" type="image/webp">
-                                    <img src="<?php bloginfo('template_url'); ?>/assets/img/product1.jpg" alt="" class="products__img">
+                        $myposts = get_posts([
+                            'post_type' => 'post',
+                            'posts_per_page' => '4',
 
-                                <a href="#" class="product__name">КРЫШКИ ЛОТКОВ</a>
-                            </div>
+                        ]);
 
-                        </div>
+                        if ($myposts) {
+                            foreach ($myposts as $post) {
+                                setup_postdata($post);
+                                ?>
+                                <div class="product swiper-slide">
+                                    <div class="product__container">
 
-                        <div class="product swiper-slide">
-                            <div class="product__container">
+                                        <?php the_post_thumbnail() ?>
 
-                                    <source srcset="<?php bloginfo('template_url'); ?>/assets/img/product2.webp" type="image/webp">
-                                    <img src="<?php bloginfo('template_url'); ?>/assets/img/product2.jpg" alt="" class="products__img">
+                                        <a href="<?php the_permalink() ?>" class="product__name"><?php the_title() ?></a>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                        }
 
-                                <a href="#" class="product__name">ЛОТКИ ПЕРФОРИРОВАННЫЕ</a>
-                            </div>
-
-                        </div>
-
-                        <div class="product swiper-slide">
-                            <div class="product__container">
-                                <picture>
-                                    <source srcset="<?php bloginfo('template_url'); ?>/assets/img/product3.webp" type="image/webp">
-                                    <img src="<?php bloginfo('template_url'); ?>/assets/img/product3.jpg" alt="" class="products__img"></picture>
-
-                                <a href="#" class="product__name">КРЫШКИ ЛОТКОВ</a>
-                            </div>
-
-                        </div>
-
-                        <div class="product swiper-slide">
-                            <div class="product__container">
-                                <picture>
-                                    <source srcset="<?php bloginfo('template_url'); ?>/assets/img/product4.webp" type="image/webp">
-                                    <img src="<?php bloginfo('template_url'); ?>/assets/img/product4.jpg" alt="" class="products__img"></picture>
-
-                                <a href="#" class="product__name">КРЫШКИ ЛОТКОВ</a>
-                            </div>
-
-                        </div>
+                        wp_reset_postdata(); // Сбрасываем $post
+                        ?>
 
                     </div>
                 </div>
@@ -85,85 +69,29 @@ get_header();
 
             </div>
 
-            <div class="why">
+            <div class="why" style="background-image: url('<?php bloginfo('template_url'); ?>/assets/img/why.jpg');">
 
                 <h3 class="why__title">
-                    ПОЧЕМУ НАС ВЫБИРАЮТ
+                    <?php the_field( 'why-title' ); ?>
                 </h3>
 
                 <div class="container why__flex">
 
-                    <div class="why__point">
+                    <?php if ( have_rows( 'why' ) ) : ?>
+                        <?php while ( have_rows( 'why' ) ) : the_row(); ?>
 
-                        <div class="why__number">
-                            <p>1</p>
-                        </div>
-
-                        <div class="why__text">
-                            Подбор лотков 3м, 6м и 9м
-                        </div>
-
-                    </div>
-
-                    <div class="why__point">
-
-                        <div class="why__number">
-                            <p>2</p>
-                        </div>
-
-                        <div class="why__text">
-                            Формируем доставку
-                        </div>
-
-                    </div>
-
-                    <div class="why__point">
-
-                        <div class="why__number">
-                            <p>3</p>
-                        </div>
-
-                        <div class="why__text">
-                            Высокое качество изделий
-                        </div>
-
-                    </div>
-
-                    <div class="why__point">
-
-                        <div class="why__number">
-                            <p>4</p>
-                        </div>
-
-                        <div class="why__text">
-                            Закрытие потребности - 100%
-                        </div>
-
-                    </div>
-
-                    <div class="why__point">
-
-                        <div class="why__number">
-                            <p>5</p>
-                        </div>
-
-                        <div class="why__text">
-                            Сертифицированная продукция
-                        </div>
-
-                    </div>
-
-                    <div class="why__point">
-
-                        <div class="why__number">
-                            <p>6</p>
-                        </div>
-
-                        <div class="why__text">
-                            Короткие сроки
-                        </div>
-
-                    </div>
+                            <div class="why__point">
+                                <div class="why__number">
+                                    <p><?php the_sub_field( 'why-number' ); ?></p>
+                                </div>
+                                <div class="why__text">
+                                    <?php the_sub_field( 'why-text' ); ?>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php else : ?>
+                        <?php // No rows found ?>
+                    <?php endif; ?>
 
                 </div>
 
@@ -172,39 +100,14 @@ get_header();
             <div class="leave">
 
                 <h3 class="leave__title">
-                    ОСТАВЬТЕ ЗАЯВКУ
+                    <?php the_field( 'form-title' ); ?>
                 </h3>
 
                 <p class="leave__text">
-                    и получите коммерческое предложение
+                    <?php the_field( 'form-text' ); ?>
                 </p>
 
-                <form action="" class="leave__form">
-
-                    <div class="leave__inputs">
-                        <p class="leave__form-text">
-                            Телефон
-                        </p>
-                        <input class="leave__input" type="tel" placeholder="Ваш номер телефона">
-                    </div>
-                    <div class="leave__inputs">
-                        <p class="leave__form-text">
-                            E-mail
-                        </p>
-                        <input class="leave__input" type="email" placeholder="Ваша почта">
-                    </div>
-                    <div class="leave__inputs-file">
-                        <p class="leave__form-text-file">Прикрепить спецификацию</p>
-                        <label>
-                            <img src="<?php bloginfo('template_url'); ?>/assets/img/file.svg" alt="">
-                            <input type="file">
-                        </label>
-                    </div>
-                    <div class="leave__form-button">
-                        <button>ОТПРАВИТЬ</button>
-                    </div>
-
-                </form>
+                <?php echo do_shortcode('[contact-form-7 id="4faf28a" title="leaveform"]') ?>
 
             </div>
 
