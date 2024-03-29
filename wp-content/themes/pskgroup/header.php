@@ -26,7 +26,12 @@
 <header class="header">
     <div class="container header__container">
         <div class="cont-logo">
-            <a href="<?php echo home_url(); ?>" class="logo header__logo"><img src="<?php bloginfo('template_url'); ?>/assets/img/LOGO4.svg" alt=""></a>
+            <a href="<?php echo home_url(); ?>" class="logo header__logo">
+                <?php $header_logo = get_field( 'header-logo', 'option' ); ?>
+                <?php if ( $header_logo ) : ?>
+                    <img src="<?php echo esc_url( $header_logo['url'] ); ?>"/>
+                <?php endif; ?>
+            </a>
         </div>
         <button class="header__burger icon-menu">
             <span></span>
@@ -46,16 +51,22 @@
 
             <div class="contacts">
                 <div class="phone">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/img/phone.svg" alt="">
-                    <p>8 (8552) 47-40-42</p>
+                    <?php $phone_img = get_field( 'phone-img', 'option' ); ?>
+                    <?php if ( $phone_img ) : ?>
+                        <img src="<?php echo esc_url( $phone_img['url'] ); ?>" alt="" />
+                    <?php endif; ?>
+                    <p><?php the_field( 'phone-text', 'option' ); ?></p>
                 </div>
                 <div class="mail">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/img/mail.svg" alt="">
-                    <p>lotkipsk@mail.ru</p>
+                    <?php $mail_img = get_field( 'mail-img', 'option' ); ?>
+                    <?php if ( $mail_img ) : ?>
+                        <img src="<?php echo esc_url( $mail_img['url'] ); ?>" alt="" />
+                    <?php endif; ?>
+                    <p><?php the_field( 'mail-text', 'option' ); ?></p>
                 </div>
             </div>
 
-            <button class="header__button">ЗАКАЗАТЬ ЗВОНОК</button>
+            <button class="header__button"><?php the_field( 'header-btn-text', 'option' ); ?></button>
         </div>
     </div>
 </header>

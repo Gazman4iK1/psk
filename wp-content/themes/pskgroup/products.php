@@ -21,9 +21,9 @@ get_header();
             <div class="container main__container">
 
                 <div class="filter">
-                    <h3 class="filter__title">
+                    <h4 class="filter__title">
                         Продукция
-                    </h3>
+                    </h4>
                     <div class="filter__flex">
 
                         <?php
@@ -42,7 +42,10 @@ get_header();
                             <a href="/produkcziya/?cat=<?php echo $category->slug; ?>" class="filter__category">
                                 <div class="filter__container">
                                     <p><?php echo $category->name; ?></p>
-                                    <img src="<?php bloginfo('template_url'); ?>/assets/img/filter.svg" alt="">
+                                    <?php $filter_img = get_field( 'filter-img', 'option' ); ?>
+                                    <?php if ( $filter_img ) : ?>
+                                        <img src="<?php echo esc_url( $filter_img['url'] ); ?>" alt="" />
+                                    <?php endif; ?>
                                 </div>
                             </a>
 
@@ -80,38 +83,24 @@ get_header();
 
                     if ($category) {
                         $category_id = $category->term_id;
-                        echo 'ID категории для слага "' . $cat . '" : ' . $category_id;
-                    } else {
-                        echo 'Категория с указанным слагом не найдена.';
                     }
 
                     $taxonomy_prefix = 'category';
 
                     $term_id_prefixed = $taxonomy_prefix .'_'. $category_id;
                     ?>
-                    <?php echo $cat ; ?>
 
-                        <h3 class="information-product__title">
+                        <h4 class="information-product__title">
                             <?php the_field( 'filter-title', $term_id_prefixed ); ?>
-                        </h3>
+                        </h4>
 
 
                     <div class="information-product__text">
-                        <p>
-                            Лотки для кабеля относятся к электромонтажным изделиям, использующимся при прокладке
-                            кабельных
-                            трасс и монтаже электропроводки с напряжением до 1000 В.
-                        </p>
-                        <p>
-                            Они служат опорой и защищают проводники от механических повреждений, сохраняют эстетичность
-                            помещения.
-                        </p>
-                        <p>
-                            Разнообразный и богатый опыт новая модель организационной деятельности требуют определения и
-                            уточнения дальнейших направлений развития. Разнообразный и богатый опыт новая модель
-                            организационной деятельности требуют определения и уточнения дальнейших направлений
-                            развития.
-                        </p>
+                        <?php if ( have_rows( 'ftlter-text', $term_id_prefixed ) ) : ?>
+                            <?php while ( have_rows( 'ftlter-text', $term_id_prefixed ) ) : the_row(); ?>
+                               <p><?php the_sub_field( 'ftext' ); ?></p>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
                     </div>
 
                     <div class="mySwiper2 swiper">

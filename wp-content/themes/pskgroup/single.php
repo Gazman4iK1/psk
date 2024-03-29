@@ -17,9 +17,9 @@ get_header();
             <div class="container main__container">
 
                 <div class="filter">
-                    <h3 class="filter__title">
+                    <h4 class="filter__title">
                         Продукция
-                    </h3>
+                    </h4>
                     <div class="filter__flex">
 
                         <?php
@@ -44,7 +44,10 @@ get_header();
                             <a href="/produkcziya/?cat=<?php echo $category->slug; ?>" class="filter__category">
                                 <div class="filter__container">
                                     <p><?php echo $category->name; ?></p>
-                                    <img src="<?php bloginfo('template_url'); ?>/assets/img/filter.svg" alt="">
+                                    <?php $filter_img = get_field( 'filter-img', 'option' ); ?>
+                                    <?php if ( $filter_img ) : ?>
+                                        <img src="<?php echo esc_url( $filter_img['url'] ); ?>" alt="" />
+                                    <?php endif; ?>
                                 </div>
                             </a>
 
@@ -85,7 +88,7 @@ get_header();
                             </div>
 
                             <div class="information-product__product__text">
-                                <h3><?php the_title()?></h3>
+                                <h4><?php the_title()?></h4>
                                 <p>
                                     <?php the_field( 'head-info' ); ?>
                                 </p>
@@ -95,9 +98,9 @@ get_header();
                         <div class="information-product__product__characteristics">
 
                             <div class="information-product__product__advantages">
-                                <h3 class="information-product__product__title">
+                                <h4 class="information-product__product__title">
                                     <?php the_field( 'advantages-title' ); ?>
-                                </h3>
+                                </h4>
 
                                 <ul>
 
@@ -112,9 +115,9 @@ get_header();
                             </div>
 
                             <div class="information-product__product__dimensions">
-                                <h3 class="information-product__product__title">
+                                <h4 class="information-product__product__title">
                                     <?php the_field( 'size-title' ); ?>
-                                </h3>
+                                </h4>
 
                                 <ul>
                                     <?php if ( have_rows( 'sizes' ) ) : ?>
@@ -128,9 +131,9 @@ get_header();
                             </div>
 
                             <div class="information-product__product__options">
-                                <h3 class="information-product__product__title">
+                                <h4 class="information-product__product__title">
                                     <?php the_field( 'variants-title' ); ?>
-                                </h3>
+                                </h4>
 
                                 <ul>
                                     <?php if ( have_rows( 'variants' ) ) : ?>

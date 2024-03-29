@@ -271,6 +271,14 @@ sup {
   }
 }
 
+@font-face {
+  font-family: Akrobat;
+  font-display: swap;
+  src: url("../fonts/Akrobat.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /** Стили для полноэкранного блока: */
 
 /*
@@ -350,6 +358,10 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+h3,h2{
+  font-family: "Akrobat", sans-serif;
+}
+
 .information-product__link {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -374,7 +386,7 @@ p{
 }
 
 button{
-  border-radius: 0;
+  border-radius: 2px;
   border: none;
   padding: 0;
 }
@@ -392,13 +404,15 @@ button{
 .header__button {
   width: 184px;
   height: 37px;
+  font-size: 14px;
+  font-weight: 600;
   background-color: #CFB148;
   background-color: var(--primary-color);
   color: #fff;
   color: var(--white-color);
   text-transform: uppercase;
   border: none;
-  border-radius: 0;
+  border-radius: 2px;
   padding: 0;
 }
 
@@ -412,12 +426,14 @@ button{
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 80%;
+  width: 81%;
 }
 
-.header a {
-  color: #fff;
+.header ul a {
   color: var(--white-color);
+  line-height: 19.5px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .header ul {
@@ -430,7 +446,7 @@ button{
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  gap: 42px;
+  gap: 45px;
   margin: 0;
 }
 
@@ -439,7 +455,7 @@ button{
 }
 
 .header__container {
-  height: 7.9375rem;
+  height: 127px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -449,6 +465,8 @@ button{
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding: 0;
+  padding-left: 15px;
 }
 
 .icon-menu {
@@ -460,10 +478,17 @@ button{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding-top: 102px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__container{
+  width: 100%;
 }
 
 .footer__flex {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -476,8 +501,9 @@ button{
 }
 
 .footer__nav {
-  width: 300px;
+  width: 290px;
   height: 150px;
+  line-height: 50px;
 }
 
 .footer__nav ul {
@@ -493,7 +519,7 @@ button{
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 30px;
+  gap: 0;
   margin: 0;
 }
 
@@ -528,8 +554,8 @@ button{
 }
 
 header .contacts {
-  gap: 9px;
-  width: 168px;
+  gap: 12px;
+  width: 160px;
   height: 49px;
 }
 
@@ -541,12 +567,12 @@ header .contacts .mail {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
-  gap: 6px;
+  gap: 8px;
 }
 
 footer .contacts {
-  gap: 9px;
-  width: 271px;
+  gap: 25px;
+  width: 260px;
   height: auto;
 }
 
@@ -754,6 +780,11 @@ footer .contacts .mail img {
     height: 2.3125rem;
   }
 
+  .header ul a{
+    color: var(--black-color);
+  }
+
+
   .header .cont-menu {
     display: none;
     -webkit-transition: .3s ease-in-out;
@@ -901,12 +932,13 @@ footer .contacts .mail img {
   .footer {
     height: 518px;
     padding-top: 48px;
+    padding-bottom: 70px;
   }
 
   .footer__con-logo {
     width: 82px;
     height: 42px;
-    margin-bottom: 46px;
+    margin-bottom: 30px;
   }
 
   .footer__con-logo img {
@@ -931,7 +963,6 @@ footer .contacts .mail img {
   }
 
   .footer__nav ul {
-    gap: 26px;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;

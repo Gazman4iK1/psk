@@ -114,7 +114,7 @@
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between;
+          justify-content: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: 26px;
